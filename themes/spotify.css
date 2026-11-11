@@ -1,0 +1,365 @@
+:root {
+    --theme-bg: #fffef9;
+    --theme-surface: #fffce6;
+    --theme-surface-hover: #f7f2d7;
+    --theme-surface-press: #e7ffa4;
+    --theme-search-active: #fbf7da;
+    --theme-menu: #ffffff;
+
+    --theme-text: #201f1c;
+    --theme-text-subdued: #6f6a50;
+    --theme-link: #48463b;
+    --theme-muted: #757262;
+    --theme-playlist-type: #777360;
+    --theme-playlist-meta: #42413e;
+    --theme-playlist-description: #9c9686;
+    --theme-column-label: #a69f8b;
+    --theme-home-icon: #746f55;
+    --theme-on-image: #ffffff;
+    --theme-black: #000000;
+
+    --theme-accent: #bfff09;
+    --theme-accent-hover: #aad927;
+    --theme-accent-soft: #edffba;
+    --theme-on-accent: #201f1c;
+    --theme-play-icon: #f7ffe2;
+    --theme-slider-handle: #ffffff;
+    --theme-topbar: #bbe83b;
+    --theme-playlist-topbar: #eee9c4;
+
+    --theme-lyrics-bg: #b3ea18;
+    --theme-lyrics-active: #ffffff;
+    --theme-lyrics-inactive: #ffffff;
+    --theme-lyrics-passed: #ffffff;
+    --theme-lyrics-message: #000000;
+    --theme-footer-bg: #757262;
+    --theme-footer-heading: #ffffff;
+    --theme-footer-text: #e1decf;
+    --theme-search-border: #ffffff1a;
+
+    /* Calibrated from Spotify's #1db954 assets to #bfff09.
+     * Changing --theme-accent does not recalibrate this filter automatically. */
+    --theme-equalizer-filter: invert(10%) sepia(67%) saturate(254%)
+        hue-rotate(-2deg) brightness(150%) contrast(207%);
+    --theme-banner-filter: invert(80%);
+    --theme-canvas-text-delay: 0.5s;
+}
+
+/* 1. Encore tokens and text defaults
+ * Important declarations override Spotify's injected component themes.
+ * Keep text tones distinct instead of forcing every label to one literal color.
+ */
+.encore-dark-theme,
+.encore-dark-theme .encore-base-set {
+    --background-base: var(--theme-surface) !important;
+    --background-highlight: var(--theme-surface-hover) !important;
+    --background-press: var(--theme-surface-press) !important;
+    --background-elevated-base: var(--theme-surface) !important;
+    --background-elevated-highlight: var(--theme-surface-hover) !important;
+    --background-elevated-press: var(--theme-surface-press) !important;
+    --text-base: var(--theme-text) !important;
+    --text-subdued: var(--theme-text-subdued) !important;
+    --text-bright-accent: var(--theme-accent) !important;
+    --essential-base: var(--theme-surface-press) !important;
+    --essential-bright-accent: var(--theme-accent) !important;
+}
+
+.encore-dark-theme .encore-bright-accent-set,
+.encore-dark-theme .encore-inverted-light-set {
+    --background-base: var(--theme-accent) !important;
+    --background-highlight: var(--theme-accent-hover) !important;
+    --background-press: var(--theme-accent-hover) !important;
+    --text-base: var(--theme-on-accent) !important;
+}
+
+/* Retain coverage for labels that previously required individual patches. */
+.e-101040-text {
+    color: var(--text-base, var(--theme-text)) !important;
+}
+
+.e-101040-text.encore-internal-color-text-subdued {
+    color: var(--text-subdued, var(--theme-text-subdued)) !important;
+}
+
+.e-101040-text.encore-internal-color-text-bright-accent {
+    color: var(--theme-accent) !important;
+}
+
+a:not([data-encore-id]) {
+    color: var(--theme-link) !important;
+}
+
+/* 2. App frame and navigation */
+.PbMBx95owTmQYYdfnp3j,
+#global-nav-bar,
+.G0r21Xb5HbCgpzJwqiev {
+    background-color: var(--theme-bg) !important;
+}
+
+#global-nav-bar [data-encore-id="logoSpotify"] path {
+    fill: var(--theme-accent) !important;
+}
+
+/* Preserve the space occupied by the original Premium / Install App controls. */
+#global-nav-bar [data-testid="upgrade-button"],
+#global-nav-bar .B3yjcrtTwSgRgDPyWg4J > div > a {
+    visibility: hidden;
+}
+
+#global-nav-bar [data-testid="home-button"] svg path {
+    fill: var(--theme-home-icon) !important;
+}
+
+#global-nav-bar [data-testid="home-button"]:hover,
+.dZNfb0mZDpDrIXvZhjHQ:hover {
+    background-color: var(--theme-surface-hover) !important;
+}
+
+/* Search input, including keyboard focus on controls inside its wrapper. */
+.xLC8OrWuExkkvVyzV00Y:hover [data-testid="search-input"],
+.xLC8OrWuExkkvVyzV00Y:focus-within [data-testid="search-input"],
+#global-nav-bar [data-testid="search-input"]:is(:hover, :focus) {
+    background: var(--theme-search-active) !important;
+    box-shadow: inset 0 0 0 1px var(--theme-search-border);
+}
+
+.xLC8OrWuExkkvVyzV00Y:is(:hover, :focus-within) .dtqolIvjTNVaeTIrR7sK {
+    color: var(--theme-text) !important;
+}
+
+#global-nav-bar .qCSin011vTK88olcvOZt {
+    background: none;
+}
+
+#search-dropdown > div,
+.MiV511XbYLgWc8rDtHQH:hover,
+.UmjU1ANun8dT2VSSOkNQ,
+#context-menu .AzuCahPU3knk4Wxa9fAR::before {
+    background-color: var(--theme-bg) !important;
+}
+
+#search-dropdown [id$="-play"] > button > span > svg {
+    fill: var(--theme-play-icon) !important;
+}
+
+/* 3. Page backgrounds, decorative overlays and sticky headers
+ * Keep artist photography; flatten the playlist / profile decorative layers.
+ */
+#main-view [data-testid="entity-header"].DjA2slq6fyyki4oNeCNq > div:first-child {
+    background-color: transparent !important;
+}
+
+/* Profile header is nested one level deeper than the playlist header. */
+#main-view section > div > [data-testid="entity-header"].DjA2slq6fyyki4oNeCNq > div:first-child,
+#main-view .T2XRKvkWneSSMSOCEo40,
+#main-view .h1AjDPMDbQn9UTUl6owY {
+    background-color: var(--theme-surface) !important;
+}
+
+#main-view .T2XRKvkWneSSMSOCEo40,
+#main-view .h1AjDPMDbQn9UTUl6owY,
+.A0hGajCN2_Y1J_AjxSJh {
+    background-image: none;
+}
+
+.fiSCuGh0nrxciCHzFnDV {
+    background: none;
+}
+
+.ELLn4yXlfRHg6wf74CNw,
+.rRzDzkFoPB1jsHaUjsDT {
+    visibility: hidden;
+}
+
+#main-view > header > .dtiw0OaK6989RIhzPa0d {
+    background-color: var(--theme-topbar) !important;
+}
+
+#main-view > header > .dtiw0OaK6989RIhzPa0d._RX6Cm0oNIzMrjxAwBeJ {
+    background-color: var(--theme-playlist-topbar) !important;
+}
+
+.KOM1bGTDuHGSNj1s_lAa {
+    display: none;
+}
+
+#main-view [data-testid="playlist-image"] img,
+.ZQYP06Jt0JvCzAHgMZDw {
+    box-shadow: none;
+}
+
+/* 4. Playlist metadata and track lists */
+#main-view [data-testid="entity-header"] .MOsjmNHcfLXhoRjnNOUY {
+    color: var(--theme-playlist-type) !important;
+}
+
+/* The metadata block carries its own inline dark-theme tokens. */
+#main-view [data-testid="entity-header"]:not(.WpkH8aNeHxhAuqDQeriZ) .gVnBhXqYYmv_ZqSKLEwS {
+    --text-base: var(--theme-text) !important;
+    --text-subdued: var(--theme-text-subdued) !important;
+}
+
+#main-view .gAyS5YjQnBVYSzOhVFvY > span,
+#main-view .PVTbBAOIIH_j8jS0KRdR .encore-text-title-small {
+    color: var(--theme-playlist-meta) !important;
+}
+
+/* Description wrapper: keep the fallback class because this snapshot's
+ * playlist has no description, so no semantic description hook is observable. */
+#main-view [data-testid="entity-header"] .as3O19oHNtVHZNZ_ZPX1 > div:nth-child(3) > span > div {
+    color: var(--theme-playlist-description) !important;
+}
+
+#main-view [data-testid="playlist-tracklist"] [role="columnheader"],
+#main-view [data-testid="playlist-tracklist"] [role="columnheader"] span {
+    color: var(--theme-column-label) !important;
+}
+
+#main-view .up9kY30c8PUzNmHSWMsd > .contentSpacing > div > div:first-child > div > button > span,
+#main-view [data-testid="artist-page"] .OKnkskaEuNsndO4Y6zBT > .contentSpacing > div:first-child button > div {
+    color: var(--theme-text) !important;
+}
+
+.asxXf0kSWzUUTdbLdpp6 {
+    color: var(--theme-muted) !important;
+}
+
+._DTR7JYAI7giDabc709o {
+    color: var(--theme-black) !important;
+}
+
+/* Artist title and verified label sit over the retained artist photograph. */
+#main-view [data-testid="artist-page"] [data-testid="entity-header"] {
+    --text-base: var(--theme-on-image) !important;
+}
+
+#main-view [data-testid="artist-page"] [data-testid="adaptiveEntityTitle"] > span,
+#main-view [data-testid="artist-page"] .T3VoFqRBfNvEGLn0LY4p > div > button > span > span {
+    color: var(--theme-on-image) !important;
+}
+
+/* 5. Library and player controls */
+.qdBsKrqtlUFVKYdSs4yQ {
+    box-shadow: 0 20px 15px var(--theme-surface);
+}
+
+.s43kB39VgV0AXSUtdg8K {
+    background-color: var(--theme-menu) !important;
+}
+
+#Desktop_LeftSidebar_Id [data-testid="play-button"] svg {
+    color: var(--theme-bg) !important;
+}
+
+.IUYGQ1ar_HJsjBhthonA {
+    color: var(--theme-link) !important;
+}
+
+.PlEfEcXjSZkVJP2zpmNU {
+    color: var(--theme-text-subdued) !important;
+}
+
+/* Keep these state classes: both fill variants occur in the supplied markup. */
+[data-testid="playback-progressbar"] :is(.GL1sl7EGoJvIn5TUlxIf, .C_oPDLKHmOSABQwEKgMs),
+[data-testid="volume-bar"] .C_oPDLKHmOSABQwEKgMs {
+    background-color: var(--theme-accent) !important;
+}
+
+[data-testid="playback-progressbar"]:is(:hover, :focus-within) :is(.GL1sl7EGoJvIn5TUlxIf, .C_oPDLKHmOSABQwEKgMs),
+[data-testid="volume-bar"] .GL1sl7EGoJvIn5TUlxIf {
+    background-color: var(--theme-accent-hover) !important;
+}
+
+[data-testid="playback-progressbar"] [data-testid="progress-bar-handle"] {
+    background-color: var(--theme-slider-handle) !important;
+}
+
+[data-testid="progress-bar-background"] {
+    background-color: var(--theme-accent-soft) !important;
+}
+
+img[src*="equaliser-green"],
+img[src*="equaliser-animated-green"] {
+    filter: var(--theme-equalizer-filter);
+}
+
+/* 6. Lyrics and now-playing panel */
+.bm5I7yGVN8NXt6vH9eiC,
+#Desktop_PanelContainer_Id [data-testid="lyrics-npv-section"] {
+    --lyrics-color-active: var(--theme-lyrics-active) !important;
+    --lyrics-color-inactive: var(--theme-lyrics-inactive) !important;
+    --lyrics-color-passed: var(--theme-lyrics-passed) !important;
+    --lyrics-color-background: var(--theme-lyrics-bg) !important;
+    --lyrics-color-messaging: var(--theme-lyrics-message) !important;
+    background-color: var(--theme-lyrics-bg) !important;
+}
+
+.jS4BIRBsF_eZyU3pAswd::before {
+    background: none !important;
+}
+
+#Desktop_PanelContainer_Id [data-testid="lyrics-npv-section"] h2,
+#Desktop_PanelContainer_Id [data-testid="lyrics-npv-section"] h2 > div {
+    color: var(--theme-lyrics-active) !important;
+}
+
+#Desktop_PanelContainer_Id [data-testid="npv-artist-bio-button"] h2 button {
+    color: var(--theme-on-image) !important;
+}
+
+#Desktop_PanelContainer_Id .CloIVNKyqaXoULDZgpTi > a > span,
+#Desktop_PanelContainer_Id .YobB51jI5MqFtV09iBY1 > section > div > div:nth-child(2) > div > div > div > span {
+    color: var(--theme-black) !important;
+}
+
+/* Scope to Canvas, not every video in the now-playing panel. */
+#Desktop_PanelContainer_Id:has(.gGu8rkkcw6DC3cXH4now video) :is(.T5aLewckz4uaWaJwdczO, .xWxKc65wzdsgLlhxW_rT) a span {
+    transition-delay: var(--theme-canvas-text-delay);
+    color: var(--theme-on-image) !important;
+}
+
+/* 7. Menus and settings */
+.joj9Wg79Z_TvNI5sSlYg,
+.FNFrQ72aiE3vYKNNeaiw {
+    background-color: var(--theme-menu) !important;
+}
+
+input:checked ~ .ZgpugrSQ4mYTFUFNxSgZ {
+    background-color: var(--theme-accent) !important;
+}
+
+/* Hide only the desktop-app equalizer promotion, regardless of section order. */
+#main-view [data-testid="settings-page"] [data-settings-row]:has(canvas):has(a[download]) {
+    display: none;
+}
+
+/* Standalone Spotify banner / success views, absent from these snapshots.
+ * Keep these narrow legacy selectors until their markup can be inspected. */
+body > header > img {
+    filter: var(--theme-banner-filter);
+}
+
+body > main > div > img {
+    filter: var(--theme-equalizer-filter);
+}
+
+/* 8. Footer: set local tokens so inherited and explicit text agree. */
+#main-view [data-testid="footer-div"] {
+    --text-base: var(--theme-footer-heading) !important;
+    --text-subdued: var(--theme-footer-text) !important;
+    background-color: var(--theme-footer-bg) !important;
+}
+
+#main-view [data-testid="footer-div"] .top-links h4 {
+    color: var(--theme-footer-heading) !important;
+}
+
+#main-view [data-testid="footer-div"] :is(.top-links, .bottom-links-container) a,
+#main-view [data-testid="footer-div"] .copyright > span {
+    color: var(--theme-footer-text) !important;
+}
+
+#main-view [data-testid="footer-div"] .social-link-button {
+    background-color: var(--theme-bg) !important;
+    fill: var(--theme-link) !important;
+}
