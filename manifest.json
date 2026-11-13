@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "LibreTweak",
+  "name": "OpenTheme",
   "description": "Customize the appearance of your favorite websites with simple, flexible themes.",
   "version": "1.0.0",
   "icons": {
@@ -22,5 +22,6 @@
       "js": ["content/content.js"],
       "css": ["themes/spotify.css"]
     }
-  ]
+  ],
+  "permissions": ["activeTab"]
 }

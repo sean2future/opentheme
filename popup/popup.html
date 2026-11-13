@@ -13,7 +13,46 @@
     </head>
     <body>
         <header>
-            <img src="../assets/icon.svg" class="logo">
+            <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" class="icon">
+                <!-- Green background -->
+                <path
+                    fill="#1DB954"
+                    d="M16.5 0A16.5 16.5 0 1 0 16.5 33A16.5 16.5 0 1 0 16.5 0Z"
+                    class="icon-bg"
+                />
+
+                <!-- White pen icon -->
+                <path
+                    fill="#FFFFFF"
+                    d="
+                    M14.32 5.31
+                    H15.34
+                    V14.54
+                    C14.97 14.92 14.79 15.43 14.79 15.96
+                    C14.79 16.87 15.54 17.59 16.57 17.59
+                    C17.61 17.59 18.39 16.85 18.39 15.96
+                    C18.39 15.42 18.20 14.94 17.88 14.54
+                    V5.31
+                    H19.04
+                    L23.25 17.37
+                    L21.01 21.44
+                    H11.99
+                    L9.75 17.37
+                    L14.25 5.44
+                    Z
+
+                    M12 22.02
+                    H21
+                    C21.34 22.40 21.53 22.85 21.53 23.25
+                    C21.53 23.68 21.36 24.09 21 24.50
+                    H12
+                    C11.65 24.10 11.46 23.68 11.46 23.25
+                    C11.46 22.82 11.68 22.41 12 22.02
+                    Z
+                    "
+                />
+            </svg>
+
             <h1 class="extension-name">OpenTheme</h1>
         </header>
         <div class="main">
@@ -29,17 +68,17 @@
 
             <div class="category">
                 <h2 class="category-label">Text and typography</h2>
-                <color-row label="Text" value="#201f1c" id="--theme-text"></color-row>
-                <color-row label="Text (subdued)" value="#6f6a50" id="--theme-text-subdued"></color-row>
-                <color-row label="Link" value="#48463b" id="--theme-link"></color-row>
-                <color-row label="Muted" value="#757262" id="--theme-muted"></color-row>
-                <color-row label="Playlist type" value="#777360" id="--theme-playlist-type"></color-row>
-                <color-row label="Playlist metadata" value="#42413e" id="--theme-playlist-meta"></color-row>
-                <color-row label="Playlist description" value="#9c9686" id="--theme-playlist-description"></color-row>
-                <color-row label="Column label" value="#a69f8b" id="--theme-column-label"></color-row>
-                <color-row label="Home icon" value="#746f55" id="--theme-home-icon"></color-row>
-                <color-row label="On image" value="#ffffff" id="--theme-on-image"></color-row>
-                <color-row label="Black" value="#000000" id="--theme-black"></color-row>
+                <color-row label="Text" id="--theme-text"></color-row>
+                <color-row label="Text (subdued)" id="--theme-text-subdued"></color-row>
+                <color-row label="Link" id="--theme-link"></color-row>
+                <color-row label="Muted" id="--theme-muted"></color-row>
+                <color-row label="Playlist type" id="--theme-playlist-type"></color-row>
+                <color-row label="Playlist metadata" id="--theme-playlist-meta"></color-row>
+                <color-row label="Playlist description" id="--theme-playlist-description"></color-row>
+                <color-row label="Column label" id="--theme-column-label"></color-row>
+                <color-row label="Home icon" id="--theme-home-icon"></color-row>
+                <color-row label="On image" id="--theme-on-image"></color-row>
+                <color-row label="Black" id="--theme-black"></color-row>
             </div>
 
             <div class="category">

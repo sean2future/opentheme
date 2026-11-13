@@ -7,7 +7,7 @@ class ColorRow extends HTMLElement {
         this.innerHTML = `
             <div class="row">
                 <label class="row-label">${label}</label>
-                <input type="text" class="color-input" data-coloris value="${value}" id="${id}">
+                <input type="text" class="color-input" data-coloris value="${value}">
             </div>
         `;
     }
