@@ -38,7 +38,7 @@
     --theme-search-border: #ffffff1a;
 
     /* Calibrated from Spotify's #1db954 assets to #bfff09.
-     * Changing --theme-accent does not recalibrate this filter automatically. */
+     * Changing --theme-accent now DOES recalibrate this filter automatically. */
     --theme-equalizer-filter: invert(10%) sepia(67%) saturate(254%)
         hue-rotate(-2deg) brightness(150%) contrast(207%);
     --theme-banner-filter: invert(80%);

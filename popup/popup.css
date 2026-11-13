@@ -1,5 +1,7 @@
 :root {
     font-family: "Open Sans", sans-serif;
+    --user-accent: #bfff09;
+    --user-accent-text: #171717;
 }
 
 * {
@@ -10,6 +12,9 @@ body {
     width: 350px;
     height: 500px;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 header {
@@ -17,6 +22,11 @@ header {
     justify-content: center;
     align-items: center;
     gap: 5px;
+    flex: 0 0 auto;
+}
+
+.icon-bg {
+    fill: var(--user-accent);
 }
 
 .icon {
@@ -138,6 +148,66 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding-bottom: 100px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 15px;
+    scrollbar-width: none;
 }
 
+.main::-webkit-scrollbar {
+    display: none;
+}
+
+/* Keep import/export/reset available while the long color list scrolls. */
+.footer {
+    flex: 0 0 auto;
+    padding: 10px 14px 12px;
+    border-top: 1px solid #ededed;
+}
+
+.footer-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+}
+
+.btn {
+    padding: 9px 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--user-accent-text);
+    background-color: var(--user-accent);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: .25;
+    cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+    filter: brightness(.94);
+}
+
+.reset-btn {
+    grid-column: 1 / -1;
+}
+
+#status {
+    margin: 0;
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+}
+
+#status:not(:empty) {
+    margin-top: 7px;
+}
+
+#status.error {
+    color: #a22424;
+}

@@ -16,7 +16,6 @@
             <svg viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg" class="icon">
                 <!-- Green background -->
                 <path
-                    fill="#1DB954"
                     d="M16.5 0A16.5 16.5 0 1 0 16.5 33A16.5 16.5 0 1 0 16.5 0Z"
                     class="icon-bg"
                 />
@@ -110,6 +109,14 @@
                 <color-row label="Text" value="#e1decf" id="--theme-footer-text"></color-row>
             </div>
         </div>
-        
+        <footer class="footer">
+            <div class="footer-actions">
+                <button id="export-button" class="btn" disabled>Export theme</button>
+                <button id="import-button" class="btn" disabled>Import theme</button>
+                <button id="reset-button" class="btn reset-btn" disabled>Reset to defaults</button>
+                <input id="import-file" type="file" accept=".json,application/json" hidden>
+            </div>
+            <p id="status" role="status" aria-live="polite"></p>
+        </footer>
     </body>
 </html>

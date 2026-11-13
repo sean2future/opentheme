@@ -23,5 +23,5 @@
       "css": ["themes/spotify.css"]
     }
   ],
-  "permissions": ["activeTab"]
+  "permissions": ["activeTab", "storage"]
 }
